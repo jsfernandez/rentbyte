@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next"
 import { Archivo, Public_Sans } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
-import { JsonLd } from "@/components/json-ld"
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
@@ -24,12 +23,17 @@ const SITE_URL = "https://rentbyte.cl"
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "RentByte - Arriendo de Computadores, Notebooks y Servidores en Chile",
+    default: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
     template: "%s | RentByte",
   },
   description:
-    "Arriendo de computadores, notebooks, servidores e infraestructura TI para empresas e instituciones públicas en Chile. Contratos B2B y B2G con soporte, mantención y cumplimiento normativo.",
+    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados, soporte y mantención incluidos, contratos flexibles y cotización rápida.",
   keywords: [
+    "arriendo de computadores notebooks y servidores para empresas",
+    "arriendo computadores notebooks servidores empresas",
+    "arriendo computadores para empresas",
+    "arriendo notebooks para empresas",
+    "arriendo servidores para empresas",
     "arriendo equipos informaticos empresas",
     "arriendo computadores empresas chile",
     "arriendo notebooks instituciones publicas",
@@ -61,9 +65,9 @@ export const metadata: Metadata = {
     locale: "es_CL",
     url: SITE_URL,
     siteName: "RentByte",
-    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores en Chile",
+    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
     description:
-      "Arriendo de equipos informáticos para empresas, instituciones públicas, licitaciones y convenios marco en Chile. Soporte y mantención incluidos.",
+      "Arriendo de computadores, notebooks y servidores para empresas en Chile, con soporte, mantención y equipos listos para operar.",
     images: [
       {
         url: "/opengraph-image",
@@ -83,9 +87,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores en Chile",
+    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
     description:
-      "Arriendo tecnológico B2B y B2G con soporte, mantención y cumplimiento normativo para empresas e instituciones públicas.",
+      "Arriendo tecnológico para empresas en Chile con soporte, mantención y cumplimiento normativo.",
     images: ["/twitter-image"],
   },
   robots: {
@@ -154,7 +158,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <JsonLd />
       </head>
       <body
         className={cn(

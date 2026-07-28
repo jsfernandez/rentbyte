@@ -3,24 +3,24 @@ const EMAIL = "contacto@rentbyte.cl"
 
 const faqItems = [
   {
-    question: "¿RentByte arrienda computadores y notebooks para empresas en Chile?",
+    question: "¿RentByte arrienda computadores, notebooks y servidores para empresas?",
     answer:
-      "Sí. RentByte entrega computadores y notebooks configurados para empresas privadas, instituciones públicas y proyectos con requerimientos técnicos específicos en Chile.",
+      "Sí. RentByte entrega computadores, notebooks, servidores e infraestructura TI para empresas en Chile, con equipos configurados según los requerimientos de cada organización.",
   },
   {
-    question: "¿El arriendo incluye soporte y mantención de los equipos?",
+    question: "¿El arriendo incluye soporte y mantención?",
     answer:
-      "Sí. Los contratos consideran soporte técnico, mantención y continuidad operativa durante la vigencia del arriendo, según el alcance acordado en la propuesta.",
+      "Sí. Los contratos pueden incluir soporte técnico, mantención, configuración inicial y reemplazo de equipos para mantener la continuidad operativa.",
   },
   {
-    question: "¿Participan en licitaciones públicas y convenios marco?",
+    question: "¿Puedo arrendar equipos por proyecto o por varios meses?",
     answer:
-      "RentByte puede preparar propuestas técnicas y comerciales para licitaciones, procesos formales de compra pública y requerimientos asociados a convenios marco.",
+      "Sí. Los plazos se ajustan a proyectos temporales, expansión de equipos, reemplazos, capacitaciones, licitaciones o necesidades operativas de mediano plazo.",
   },
   {
-    question: "¿Qué equipos informáticos se pueden arrendar?",
+    question: "¿Atienden empresas fuera de Santiago?",
     answer:
-      "El servicio cubre computadores, notebooks, servidores, estaciones de trabajo e infraestructura TI bajo demanda para proyectos de corto, mediano y largo plazo.",
+      "RentByte evalúa requerimientos de empresas en Chile según cantidad de equipos, ubicación, plazos, soporte requerido y condiciones de entrega.",
   },
 ]
 
@@ -43,7 +43,7 @@ export function JsonLd() {
           height: 600,
         },
         description:
-          "Empresa chilena especializada en arriendo de computadores, notebooks, servidores e infraestructura TI para empresas, instituciones públicas, licitaciones y convenios marco.",
+          "Empresa chilena especializada en arriendo de computadores, notebooks, servidores e infraestructura TI para empresas.",
         email: EMAIL,
         contactPoint: [
           {
@@ -69,7 +69,7 @@ export function JsonLd() {
         knowsAbout: [
           "Arriendo de computadores para empresas",
           "Arriendo de notebooks para empresas",
-          "Arriendo de servidores",
+          "Arriendo de servidores para empresas",
           "Infraestructura TI bajo demanda",
           "Licitaciones públicas en Chile",
           "Convenios marco",
@@ -83,7 +83,7 @@ export function JsonLd() {
         name: "RentByte",
         url: SITE_URL,
         description:
-          "Arriendo de equipos informáticos para empresas e instituciones públicas en Chile.",
+          "Arriendo de computadores, notebooks y servidores para empresas en Chile.",
         inLanguage: "es-CL",
         publisher: {
           "@id": `${SITE_URL}/#organization`,
@@ -93,9 +93,9 @@ export function JsonLd() {
         "@type": "WebPage",
         "@id": `${SITE_URL}/#webpage`,
         url: SITE_URL,
-        name: "Arriendo de computadores, notebooks y servidores en Chile | RentByte",
+        name: "Arriendo de computadores, notebooks y servidores para empresas | RentByte",
         description:
-          "Landing corporativa de RentByte para solicitar cotización de arriendo de equipos informáticos B2B y B2G en Chile.",
+          "Landing corporativa de RentByte para solicitar cotización de arriendo de computadores, notebooks y servidores para empresas en Chile.",
         inLanguage: "es-CL",
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
@@ -116,7 +116,7 @@ export function JsonLd() {
       {
         "@type": "Service",
         "@id": `${SITE_URL}/#service`,
-        name: "Arriendo de equipos informáticos en Chile",
+        name: "Arriendo de computadores, notebooks y servidores para empresas",
         alternateName: [
           "Arriendo de computadores para empresas",
           "Arriendo de notebooks para empresas",
@@ -130,7 +130,7 @@ export function JsonLd() {
         },
         url: SITE_URL,
         description:
-          "Servicio de arriendo de computadores, notebooks, servidores, estaciones de trabajo e infraestructura TI para empresas, organismos del Estado, licitaciones y convenios marco en Chile.",
+          "Servicio de arriendo de computadores, notebooks, servidores, estaciones de trabajo e infraestructura TI para empresas en Chile.",
         areaServed: {
           "@type": "Country",
           name: "Chile",
@@ -169,9 +169,10 @@ export function JsonLd() {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Arriendo de computadores y notebooks para empresas",
+              name: "Arriendo de computadores para empresas",
               description:
-                "Computadores y notebooks configurados para organizaciones, con soporte y mantención incluida.",
+                "Computadores de escritorio configurados para organizaciones, con soporte y mantención incluida.",
+              url: `${SITE_URL}/arriendo-computadores-empresas`,
             },
             areaServed: "CL",
             availability: "https://schema.org/InStock",
@@ -180,9 +181,10 @@ export function JsonLd() {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Arriendo para licitaciones y convenios marco",
+              name: "Arriendo de notebooks para empresas",
               description:
-                "Equipamiento informático para procesos de licitación pública, compra pública y convenios marco en Chile.",
+                "Notebooks corporativos para equipos híbridos, proyectos, capacitaciones y reemplazos temporales.",
+              url: `${SITE_URL}/arriendo-notebooks-empresas`,
             },
             areaServed: "CL",
             availability: "https://schema.org/InStock",
@@ -191,9 +193,10 @@ export function JsonLd() {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Infraestructura TI bajo demanda",
+              name: "Arriendo de servidores para empresas",
               description:
-                "Servidores, estaciones de trabajo y equipamiento especializado para proyectos de corto y mediano plazo.",
+                "Servidores e infraestructura TI para continuidad operativa, pruebas e implementación de sistemas.",
+              url: `${SITE_URL}/arriendo-servidores-empresas`,
             },
             areaServed: "CL",
             availability: "https://schema.org/InStock",

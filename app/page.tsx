@@ -1,13 +1,17 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
+import { JsonLd } from "@/components/json-ld"
 import {
   ArrowRight,
   Check,
   ClipboardList,
   Database,
+  Laptop,
   Mail,
   Menu,
   Monitor,
+  Server,
   Settings,
 } from "lucide-react"
 
@@ -16,29 +20,30 @@ const EMAIL = "contacto@rentbyte.cl"
 const MAILTO = `mailto:${EMAIL}`
 
 export const metadata: Metadata = {
-  title: "Arriendo de Computadores, Notebooks y Servidores en Chile",
+  title: "Arriendo de Computadores, Notebooks y Servidores para Empresas",
   description:
-    "Arriendo de computadores, notebooks, servidores y equipamiento TI para empresas, instituciones públicas, licitaciones y convenios marco en Chile. Solicita cotización.",
+    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados, soporte y mantención incluidos, contratos flexibles y cotización rápida.",
   keywords: [
+    "arriendo de computadores notebooks y servidores para empresas",
+    "arriendo computadores notebooks servidores empresas",
+    "arriendo computadores para empresas",
+    "arriendo notebooks para empresas",
+    "arriendo servidores para empresas",
     "arriendo equipos informaticos empresas",
     "arriendo computadores empresas chile",
-    "arriendo notebooks instituciones publicas",
     "arriendo notebooks empresas chile",
-    "licitacion arriendo computadores",
-    "arriendo equipamiento tecnologico estado chile",
-    "arriendo computadores para empresas",
-    "arriendo servidores empresas",
     "arriendo infraestructura ti chile",
     "soluciones tecnologicas b2b chile",
+    "licitacion arriendo computadores",
     "convenio marco arriendo computadores",
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores en Chile",
+    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
     description:
-      "Arriendo de equipos informáticos B2B y B2G para empresas, instituciones públicas, licitaciones y convenios marco en Chile.",
+      "Arriendo de computadores, notebooks y servidores para empresas en Chile, con soporte, mantención y equipos listos para operar.",
     url: SITE_URL,
     siteName: "RentByte",
     images: [
@@ -106,6 +111,30 @@ const services = [
   },
 ]
 
+const equipmentServices = [
+  {
+    icon: Monitor,
+    title: "Arriendo de computadores para empresas",
+    href: "/arriendo-computadores-empresas",
+    description:
+      "Equipos de escritorio para puestos administrativos, atención, operación y proyectos internos, configurados según el estándar de tu empresa.",
+  },
+  {
+    icon: Laptop,
+    title: "Arriendo de notebooks para empresas",
+    href: "/arriendo-notebooks-empresas",
+    description:
+      "Notebooks corporativos para equipos híbridos, capacitaciones, reemplazos temporales, licitaciones y crecimiento operacional.",
+  },
+  {
+    icon: Server,
+    title: "Arriendo de servidores para empresas",
+    href: "/arriendo-servidores-empresas",
+    description:
+      "Servidores e infraestructura TI para continuidad operativa, pruebas, implementación de sistemas y proyectos de corto o mediano plazo.",
+  },
+]
+
 const reasons = [
   {
     number: "01",
@@ -153,6 +182,29 @@ const processSteps = [
     number: "04",
     title: "Soporte continuo",
     description: "Mantención, monitoreo y reemplazo durante toda la vigencia del contrato.",
+  },
+]
+
+const faqs = [
+  {
+    question: "¿RentByte arrienda computadores, notebooks y servidores para empresas?",
+    answer:
+      "Sí. RentByte entrega computadores, notebooks, servidores e infraestructura TI para empresas en Chile, con equipos configurados según los requerimientos de cada organización.",
+  },
+  {
+    question: "¿El arriendo incluye soporte y mantención?",
+    answer:
+      "Sí. Los contratos pueden incluir soporte técnico, mantención, configuración inicial y reemplazo de equipos para mantener la continuidad operativa.",
+  },
+  {
+    question: "¿Puedo arrendar equipos por proyecto o por varios meses?",
+    answer:
+      "Sí. Los plazos se ajustan a proyectos temporales, expansión de equipos, reemplazos, capacitaciones, licitaciones o necesidades operativas de mediano plazo.",
+  },
+  {
+    question: "¿Atienden empresas fuera de Santiago?",
+    answer:
+      "RentByte evalúa requerimientos de empresas en Chile según cantidad de equipos, ubicación, plazos, soporte requerido y condiciones de entrega.",
   },
 ]
 
@@ -226,6 +278,7 @@ function Header() {
 export default function RentBytePage() {
   return (
     <div id="top" className="min-h-dvh bg-white font-sans text-[#10141c]">
+      <JsonLd />
       <Header />
 
       <main>
@@ -238,13 +291,13 @@ export default function RentBytePage() {
               </div>
 
               <h1 className="mt-6 max-w-[620px] text-balance font-display text-[36px] font-extrabold leading-[1.05] tracking-[-0.02em] text-[#10141c] sm:text-[46px] lg:text-[54px] lg:leading-[1.03]">
-                Arriendo de equipos informáticos para empresas y el Estado
+                Arriendo de computadores, notebooks y servidores para empresas
               </h1>
 
               <p className="mt-6 max-w-[520px] text-[17px] leading-[1.55] text-[#4a5568] sm:text-[19px]">
-                Computadores, notebooks y servidores configurados y listos para operar.
-                Con soporte y mantención incluidos, contratos transparentes y
-                cumplimiento normativo.
+                Equipos informáticos configurados y listos para operar. Arriendo flexible
+                para empresas en Chile, con soporte, mantención, contratos transparentes
+                y cumplimiento normativo.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -355,6 +408,53 @@ export default function RentBytePage() {
           </div>
         </section>
 
+        <section className="bg-[#f8fafd] px-6 py-[84px]" aria-labelledby="equipment-heading">
+          <div className="mx-auto max-w-[1200px]">
+            <div className="max-w-[760px]">
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
+                Arriendo para empresas
+              </p>
+              <h2
+                id="equipment-heading"
+                className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[38px]"
+              >
+                Arriendo de computadores, notebooks y servidores para empresas en Chile
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.6] text-[#4a5568]">
+                RentByte cubre necesidades de puestos de trabajo, movilidad corporativa
+                e infraestructura TI. Cada propuesta considera cantidad de equipos,
+                configuración, plazo, soporte y condiciones de entrega.
+              </p>
+            </div>
+
+            <div className="mt-11 grid gap-5 min-[760px]:grid-cols-3">
+              {equipmentServices.map((service) => (
+                <article
+                  key={service.href}
+                  className="rounded-2xl border border-[#e7ebf2] bg-white p-[30px] transition-all duration-150 hover:border-[#c9d6ec] hover:shadow-[0_14px_30px_-20px_rgba(16,20,28,0.35)]"
+                >
+                  <div className="flex h-[46px] w-[46px] items-center justify-center rounded-[11px] bg-[#eaf0fb] text-[#1656c9]">
+                    <service.icon className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 font-display text-[21px] font-bold tracking-[-0.02em] text-[#14181f]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-[15.5px] leading-[1.65] text-[#556072]">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={service.href}
+                    className="mt-5 inline-flex items-center gap-2 text-[15px] font-semibold text-[#1656c9] hover:text-[#0f3d8f]"
+                  >
+                    Ver servicio
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="why" className="bg-[#0f1a2e] px-6 py-[84px]" aria-labelledby="why-heading">
           <div className="mx-auto grid max-w-[1200px] gap-12 min-[720px]:grid-cols-[0.85fr_1.15fr] min-[720px]:gap-14">
             <div>
@@ -434,6 +534,45 @@ export default function RentBytePage() {
                     {step.description}
                   </p>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f8fafd] px-6 py-[84px]" aria-labelledby="faq-heading">
+          <div className="mx-auto grid max-w-[1200px] gap-10 min-[900px]:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
+                Preguntas frecuentes
+              </p>
+              <h2
+                id="faq-heading"
+                className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[38px]"
+              >
+                Dudas sobre arriendo de equipos informáticos para empresas
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.6] text-[#4a5568]">
+                Respuestas rápidas para equipos de compras, operaciones y TI que buscan
+                arrendar computadores, notebooks o servidores corporativos.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {faqs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="group rounded-2xl border border-[#e7ebf2] bg-white p-5 transition-all duration-150 open:border-[#c9d6ec] open:shadow-[0_14px_30px_-20px_rgba(16,20,28,0.25)]"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-display text-[18px] font-bold tracking-[-0.02em] text-[#14181f] marker:hidden">
+                    {faq.question}
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eaf0fb] text-[#1656c9] transition-transform duration-150 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-[15.5px] leading-[1.65] text-[#556072]">
+                    {faq.answer}
+                  </p>
+                </details>
               ))}
             </div>
           </div>
