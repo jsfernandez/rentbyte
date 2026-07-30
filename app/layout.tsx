@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | RentByte",
   },
   description:
-    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados, soporte y mantención incluidos, contratos flexibles y cotización rápida.",
+    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados con soporte, mantención y contratos flexibles.",
   keywords: [
     "arriendo de computadores notebooks y servidores para empresas",
     "arriendo computadores notebooks servidores empresas",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
       {
-        url: "/placeholder-logo.png",
+        url: "/logo.png",
         width: 600,
         height: 600,
         alt: "RentByte Logo",
@@ -87,6 +87,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@RentByteChile",
     title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
     description:
       "Arriendo tecnológico para empresas en Chile con soporte, mantención y cumplimiento normativo.",

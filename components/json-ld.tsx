@@ -37,8 +37,8 @@ export function JsonLd() {
         logo: {
           "@type": "ImageObject",
           "@id": `${SITE_URL}/#logo`,
-          url: `${SITE_URL}/placeholder-logo.png`,
-          contentUrl: `${SITE_URL}/placeholder-logo.png`,
+          url: `${SITE_URL}/logo.png`,
+          contentUrl: `${SITE_URL}/logo.png`,
           width: 600,
           height: 600,
         },
@@ -96,6 +96,8 @@ export function JsonLd() {
         name: "Arriendo de computadores, notebooks y servidores para empresas | RentByte",
         description:
           "Landing corporativa de RentByte para solicitar cotización de arriendo de computadores, notebooks y servidores para empresas en Chile.",
+        datePublished: "2025-01-01",
+        dateModified: "2026-07-27",
         inLanguage: "es-CL",
         isPartOf: {
           "@id": `${SITE_URL}/#website`,

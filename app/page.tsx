@@ -22,7 +22,7 @@ const MAILTO = `mailto:${EMAIL}`
 export const metadata: Metadata = {
   title: "Arriendo de Computadores, Notebooks y Servidores para Empresas",
   description:
-    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados, soporte y mantención incluidos, contratos flexibles y cotización rápida.",
+    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados con soporte, mantención y contratos flexibles.",
   keywords: [
     "arriendo de computadores notebooks y servidores para empresas",
     "arriendo computadores notebooks servidores empresas",

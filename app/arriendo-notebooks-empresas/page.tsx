@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: page.metaDescription,
   alternates: {
     canonical,
+    languages: {
+      "es-CL": canonical,
+    },
   },
   openGraph: {
     title: `${page.metaTitle} | RentByte`,

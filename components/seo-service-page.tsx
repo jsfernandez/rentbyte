@@ -32,7 +32,7 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         "@id": `${SITE_URL}/#organization`,
         name: "RentByte",
         url: SITE_URL,
-        logo: `${SITE_URL}/placeholder-logo.png`,
+        logo: `${SITE_URL}/logo.png`,
         email: EMAIL,
         areaServed: {
           "@type": "Country",
@@ -56,10 +56,33 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         url: pageUrl,
         name: `${page.h1} | RentByte`,
         description: page.metaDescription,
+        datePublished: "2025-01-01",
+        dateModified: "2026-07-27",
         inLanguage: "es-CL",
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
+        breadcrumb: {
+          "@id": `${pageUrl}/#breadcrumb`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: page.title,
+            item: pageUrl,
+          },
+        ],
       },
       {
         "@type": "Service",
@@ -258,6 +281,55 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
                   <p className="mt-4 text-[15.5px] leading-[1.65] text-[#556072]">{faq.answer}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[#e7ebf2] bg-white px-6 py-[60px]" aria-labelledby="related-heading">
+          <div className="mx-auto max-w-[1200px]">
+            <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
+              También te puede interesar
+            </p>
+            <h2
+              id="related-heading"
+              className="mt-3 font-display text-[24px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[30px]"
+            >
+              Otros servicios de arriendo tecnológico
+            </h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <Link
+                href="/arriendo-computadores-empresas"
+                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
+              >
+                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
+                  Arriendo de computadores para empresas
+                </h3>
+                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
+                  Equipos de escritorio para puestos administrativos, operación y proyectos internos.
+                </p>
+              </Link>
+              <Link
+                href="/arriendo-notebooks-empresas"
+                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
+              >
+                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
+                  Arriendo de notebooks para empresas
+                </h3>
+                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
+                  Notebooks corporativos para trabajo híbrido, capacitaciones y reemplazos.
+                </p>
+              </Link>
+              <Link
+                href="/arriendo-servidores-empresas"
+                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
+              >
+                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
+                  Arriendo de servidores para empresas
+                </h3>
+                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
+                  Servidores e infraestructura TI para continuidad operativa y proyectos.
+                </p>
+              </Link>
             </div>
           </div>
         </section>
