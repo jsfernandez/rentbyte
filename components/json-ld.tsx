@@ -50,6 +50,7 @@ export function JsonLd() {
             "@type": "ContactPoint",
             email: EMAIL,
             contactType: "sales",
+            url: `${SITE_URL}/contacto`,
             availableLanguage: ["es-CL", "es"],
             areaServed: "CL",
           },
@@ -57,6 +58,7 @@ export function JsonLd() {
             "@type": "ContactPoint",
             email: EMAIL,
             contactType: "customer support",
+            url: `${SITE_URL}/contacto`,
             availableLanguage: ["es-CL", "es"],
             areaServed: "CL",
           },
@@ -93,11 +95,11 @@ export function JsonLd() {
         "@type": "WebPage",
         "@id": `${SITE_URL}/#webpage`,
         url: SITE_URL,
-        name: "Arriendo de computadores, notebooks y servidores para empresas | RentByte",
+        name: "Arriendo TI para empresas en Chile | RentByte",
         description:
-          "Landing corporativa de RentByte para solicitar cotización de arriendo de computadores, notebooks y servidores para empresas en Chile.",
+          "Landing corporativa de RentByte para solicitar cotizacion de arriendo de computadores, notebooks y servidores para empresas en Chile.",
         datePublished: "2025-01-01",
-        dateModified: "2026-07-27",
+        dateModified: "2026-08-22",
         inLanguage: "es-CL",
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
@@ -154,10 +156,10 @@ export function JsonLd() {
         ],
         availableChannel: {
           "@type": "ServiceChannel",
-          serviceUrl: SITE_URL,
+          serviceUrl: `${SITE_URL}/contacto`,
           availableLanguage: ["es-CL", "es"],
         },
-        termsOfService: `${SITE_URL}/#process`,
+        termsOfService: `${SITE_URL}/terminos`,
         hasOfferCatalog: {
           "@id": `${SITE_URL}/#offer-catalog`,
         },

@@ -23,11 +23,11 @@ const SITE_URL = "https://rentbyte.cl"
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
+    default: "Arriendo TI para Empresas en Chile | RentByte",
     template: "%s | RentByte",
   },
   description:
-    "Arriendo de computadores, notebooks y servidores para empresas en Chile. Equipos configurados con soporte, mantención y contratos flexibles.",
+    "Arrienda computadores, notebooks y servidores para tu empresa en Chile. Equipos configurados, soporte tecnico, mantencion y propuesta en 48 horas.",
   keywords: [
     "arriendo de computadores notebooks y servidores para empresas",
     "arriendo computadores notebooks servidores empresas",
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
     locale: "es_CL",
     url: SITE_URL,
     siteName: "RentByte",
-    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
+    title: "Arriendo TI para Empresas en Chile | RentByte",
     description:
-      "Arriendo de computadores, notebooks y servidores para empresas en Chile, con soporte, mantención y equipos listos para operar.",
+      "Arrienda computadores, notebooks y servidores para tu empresa en Chile con soporte tecnico, mantencion y propuesta en 48 horas.",
     images: [
       {
         url: "/opengraph-image",
@@ -88,9 +88,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@RentByteChile",
-    title: "RentByte - Arriendo de Computadores, Notebooks y Servidores para Empresas",
+    title: "Arriendo TI para Empresas en Chile | RentByte",
     description:
-      "Arriendo tecnológico para empresas en Chile con soporte, mantención y cumplimiento normativo.",
+      "Arriendo tecnologico para empresas en Chile con soporte, mantencion, cobertura corporativa y propuesta en 48 horas.",
     images: ["/twitter-image"],
   },
   robots: {
@@ -117,14 +117,17 @@ export const metadata: Metadata = {
     // yahoo: "TU_CODIGO_YAHOO",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo.png", sizes: "512x512", type: "image/png" },
+    ],
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
     other: [
       {
         rel: "icon",
-        type: "image/svg+xml",
-        url: "/placeholder-logo.svg",
+        type: "image/png",
+        url: "/logo.png",
       },
     ],
   },

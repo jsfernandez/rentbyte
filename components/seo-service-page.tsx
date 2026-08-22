@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Check, Mail } from "lucide-react"
+import { ArrowLeft, Check, Mail } from "lucide-react"
+import { QuoteForm } from "@/components/quote-form"
 import type { SeoServicePage } from "@/lib/seo-service-pages"
 
 const SITE_URL = "https://rentbyte.cl"
@@ -57,7 +58,7 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         name: `${page.h1} | RentByte`,
         description: page.metaDescription,
         datePublished: "2025-01-01",
-        dateModified: "2026-07-27",
+        dateModified: "2026-08-22",
         inLanguage: "es-CL",
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
@@ -99,6 +100,7 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         },
         url: pageUrl,
         description: page.metaDescription,
+        termsOfService: `${SITE_URL}/terminos`,
       },
       {
         "@type": "FAQPage",
@@ -127,18 +129,21 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
           <Link href="/" aria-label="Ir al inicio">
             <Logo />
           </Link>
-          <nav className="hidden items-center gap-7 sm:flex" aria-label="Navegación del servicio">
+          <nav className="hidden items-center gap-7 sm:flex" aria-label="Navegacion del servicio">
             <Link href="/#services" className="text-[15px] font-medium text-[#4a5568] hover:text-[#1656c9]">
               Servicios
             </Link>
-            <Link href="/#process" className="text-[15px] font-medium text-[#4a5568] hover:text-[#1656c9]">
-              Proceso
+            <Link href="/#scenarios" className="text-[15px] font-medium text-[#4a5568] hover:text-[#1656c9]">
+              Escenarios
+            </Link>
+            <Link href="/contacto" className="text-[15px] font-medium text-[#4a5568] hover:text-[#1656c9]">
+              Contacto
             </Link>
             <a
               href={MAILTO}
               className="rounded-[9px] bg-[#1656c9] px-[18px] py-2.5 text-[15px] font-semibold text-white hover:bg-[#0f3d8f]"
             >
-              Solicitar cotización
+              Solicitar cotizacion
             </a>
           </nav>
         </div>
@@ -166,10 +171,10 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={MAILTO}
+                  href="#quote-form"
                   className="inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#1656c9] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_-8px_rgba(22,86,201,0.5)] hover:bg-[#0f3d8f]"
                 >
-                  Solicitar cotización
+                  Solicitar cotizacion
                   <Mail className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
@@ -199,9 +204,7 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         <section id="detalles" className="px-6 py-[84px]" aria-labelledby="details-heading">
           <div className="mx-auto grid max-w-[1200px] gap-12 min-[900px]:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
-                Qué incluye
-              </p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">Que incluye</p>
               <h2
                 id="details-heading"
                 className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[38px]"
@@ -224,9 +227,31 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
                   <h3 className="font-display text-[19px] font-bold tracking-[-0.02em] text-[#14181f]">
                     {detail.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-[1.65] text-[#556072]">
-                    {detail.description}
-                  </p>
+                  <p className="mt-3 text-[15px] leading-[1.65] text-[#556072]">{detail.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f8fafd] px-6 py-[84px]" aria-labelledby="proof-heading">
+          <div className="mx-auto max-w-[1200px]">
+            <div className="max-w-[720px]">
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
+                Alcance y confianza
+              </p>
+              <h2
+                id="proof-heading"
+                className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[38px]"
+              >
+                Informacion concreta para compras, operaciones y TI
+              </h2>
+            </div>
+            <div className="mt-10 grid gap-5 min-[720px]:grid-cols-2 min-[1040px]:grid-cols-4">
+              {page.proofPoints.map((item) => (
+                <article key={item.label} className="rounded-2xl border border-[#e7ebf2] bg-white p-6">
+                  <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">{item.label}</p>
+                  <p className="mt-4 text-[15px] leading-[1.65] text-[#556072]">{item.value}</p>
                 </article>
               ))}
             </div>
@@ -236,14 +261,12 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         <section className="bg-[#0f1a2e] px-6 py-[84px]" aria-labelledby="cases-heading">
           <div className="mx-auto max-w-[1200px]">
             <div className="max-w-[720px]">
-              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#7fa8f5]">
-                Casos de uso
-              </p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#7fa8f5]">Casos de uso</p>
               <h2
                 id="cases-heading"
                 className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-white sm:text-[36px]"
               >
-                Cuándo conviene arrendar en vez de comprar
+                Escenarios donde conviene arrendar
               </h2>
             </div>
             <div className="mt-10 grid gap-3 min-[640px]:grid-cols-2 min-[960px]:grid-cols-4">
@@ -259,9 +282,7 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
         <section className="bg-[#f8fafd] px-6 py-[84px]" aria-labelledby="faq-heading">
           <div className="mx-auto grid max-w-[1200px] gap-10 min-[900px]:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
-                Preguntas frecuentes
-              </p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">Preguntas frecuentes</p>
               <h2
                 id="faq-heading"
                 className="mt-3 font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[38px]"
@@ -287,84 +308,88 @@ export function SeoServicePage({ page }: SeoServicePageProps) {
 
         <section className="border-t border-[#e7ebf2] bg-white px-6 py-[60px]" aria-labelledby="related-heading">
           <div className="mx-auto max-w-[1200px]">
-            <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">
-              También te puede interesar
-            </p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1656c9]">Tambien te puede interesar</p>
             <h2
               id="related-heading"
               className="mt-3 font-display text-[24px] font-extrabold leading-tight tracking-[-0.02em] text-[#14181f] sm:text-[30px]"
             >
-              Otros servicios de arriendo tecnológico
+              Otras paginas relacionadas
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <Link
-                href="/arriendo-computadores-empresas"
-                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
-              >
-                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
-                  Arriendo de computadores para empresas
-                </h3>
-                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
-                  Equipos de escritorio para puestos administrativos, operación y proyectos internos.
-                </p>
-              </Link>
-              <Link
-                href="/arriendo-notebooks-empresas"
-                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
-              >
-                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
-                  Arriendo de notebooks para empresas
-                </h3>
-                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
-                  Notebooks corporativos para trabajo híbrido, capacitaciones y reemplazos.
-                </p>
-              </Link>
-              <Link
-                href="/arriendo-servidores-empresas"
-                className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
-              >
-                <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">
-                  Arriendo de servidores para empresas
-                </h3>
-                <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">
-                  Servidores e infraestructura TI para continuidad operativa y proyectos.
-                </p>
-              </Link>
+              {page.relatedPages.map((related) => (
+                <Link
+                  key={related.href}
+                  href={related.href}
+                  className="rounded-2xl border border-[#e7ebf2] bg-[#f8fafd] p-6 transition-all hover:border-[#1656c9] hover:shadow-[0_8px_24px_-12px_rgba(22,86,201,0.2)]"
+                >
+                  <h3 className="font-display text-[17px] font-bold tracking-[-0.02em] text-[#14181f]">{related.title}</h3>
+                  <p className="mt-2 text-[14px] leading-[1.6] text-[#556072]">{related.description}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="px-6 py-[84px]" aria-labelledby="contact-heading">
-          <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[22px] bg-[#0f1a2e] px-6 py-12 sm:px-10 lg:px-14 lg:py-[68px]">
-            <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
-              <div>
-                <h2
-                  id="contact-heading"
-                  className="font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-white sm:text-[40px]"
-                >
-                  Solicita una cotización para tu empresa
-                </h2>
-                <p className="mt-4 max-w-[620px] text-[18px] leading-[1.6] text-[#b9c5da]">
-                  Indícanos cantidad, plazo, ubicación y requerimientos técnicos. Te responderemos
-                  con una propuesta técnica y comercial.
+        <section id="quote-form" className="px-6 py-[84px]" aria-labelledby="contact-heading">
+          <div className="mx-auto grid max-w-[1200px] gap-8 rounded-[22px] bg-[#0f1a2e] p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:p-14">
+            <div>
+              <h2
+                id="contact-heading"
+                className="font-display text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-white sm:text-[40px]"
+              >
+                Solicita una cotizacion para tu empresa
+              </h2>
+              <p className="mt-4 max-w-[560px] text-[18px] leading-[1.6] text-[#b9c5da]">
+                Comparte cantidad, plazo, ubicacion y requerimientos tecnicos. RentByte responde por correo con una propuesta comercial y tecnica.
+              </p>
+              <div className="mt-8 space-y-3 text-[15px] leading-[1.65] text-[#cdd8ea]">
+                <p>Correo comercial: <a href={MAILTO} className="font-semibold text-white hover:text-[#7fa8f5]">{EMAIL}</a></p>
+                <p>Respuesta estimada: propuesta inicial en menos de 48 horas habiles.</p>
+                <p>Cobertura: Santiago y evaluacion de requerimientos a nivel nacional.</p>
+                <p>
+                  Enlaces utiles: <Link href="/contacto" className="font-semibold text-white hover:text-[#7fa8f5]">Contacto</Link>,{" "}
+                  <Link href="/privacy" className="font-semibold text-white hover:text-[#7fa8f5]">Privacidad</Link> y{" "}
+                  <Link href="/terminos" className="font-semibold text-white hover:text-[#7fa8f5]">Terminos</Link>.
                 </p>
               </div>
-              <div className="flex flex-col items-start lg:items-end">
-                <a
-                  href={MAILTO}
-                  className="inline-flex items-center justify-center gap-2 rounded-[11px] bg-[#1656c9] px-7 py-4 text-[17px] font-bold text-white hover:bg-[#2f6fe0]"
-                >
-                  Solicitar cotización
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-                <a href={MAILTO} className="mt-4 text-base font-medium text-[#cdd8ea] hover:text-white">
-                  {EMAIL}
-                </a>
-              </div>
             </div>
+            <QuoteForm defaultEquipmentType={page.defaultEquipmentType} />
           </div>
         </section>
       </main>
+
+      <footer className="border-t border-[#e7ebf2] bg-white px-6 py-10" role="contentinfo">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-[320px]">
+              <Logo />
+              <p className="mt-4 text-sm leading-[1.65] text-[#6b7688]">
+                Soluciones tecnologicas de arriendo para empresas, licitaciones e instituciones en Chile.
+              </p>
+            </div>
+
+            <nav className="flex flex-wrap gap-x-7 gap-y-3" aria-label="Navegacion del pie de pagina">
+              <Link href="/" className="text-sm font-medium text-[#4a5568] transition-colors duration-150 hover:text-[#1656c9]">
+                Inicio
+              </Link>
+              <Link href="/contacto" className="text-sm font-medium text-[#4a5568] transition-colors duration-150 hover:text-[#1656c9]">
+                Contacto
+              </Link>
+              <Link href="/privacy" className="text-sm font-medium text-[#4a5568] transition-colors duration-150 hover:text-[#1656c9]">
+                Privacidad
+              </Link>
+              <Link href="/terminos" className="text-sm font-medium text-[#4a5568] transition-colors duration-150 hover:text-[#1656c9]">
+                Terminos
+              </Link>
+            </nav>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-3 border-t border-[#e7ebf2] pt-6 text-[13px] text-[#8593ac] sm:flex-row sm:items-center sm:justify-between">
+            <p>© 2026 RentByte · Chile</p>
+            <p>Arriendo de equipos informaticos · B2B · B2G</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
