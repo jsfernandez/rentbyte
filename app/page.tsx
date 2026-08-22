@@ -709,7 +709,7 @@ export default function RentBytePage() {
                 Comienza tu cotizacion hoy
               </h2>
               <p className="mt-4 max-w-[620px] text-[18px] leading-[1.6] text-[#b9c5da]">
-                Cuentanos las necesidades de tu organizacion, licitacion o proyecto. El formulario deja el correo prearmado con cantidad, tipo de equipo, plazo y comuna.
+                Cuentanos las necesidades de tu organizacion, licitacion o proyecto. El formulario envia cantidad, tipo de equipo, plazo y comuna directo a nuestro equipo comercial.
               </p>
               <div className="mt-8 space-y-4 text-[15px] leading-[1.65] text-[#cdd8ea]">
                 <p>

@@ -76,7 +76,7 @@ export default function ContactoPage() {
               Solicita una cotizacion a RentByte
             </h1>
             <p className="mt-5 max-w-[700px] text-[18px] leading-[1.6] text-[#4a5568]">
-              Indica cantidad, tipo de equipo, plazo y comuna. La solicitud llega prellenada a nuestro correo comercial para responder con una propuesta tecnica y comercial.
+              Indica cantidad, tipo de equipo, plazo y comuna. La solicitud llega directo a nuestro correo comercial para responder con una propuesta tecnica y comercial.
             </p>
           </div>
         </section>

@@ -3,8 +3,6 @@
 import type { FormEvent } from "react"
 import { useState } from "react"
 
-const EMAIL = "contacto@rentbyte.cl"
-
 const equipmentOptions = [
   "Computadores",
   "Notebooks",
@@ -30,14 +28,16 @@ type QuoteFormProps = {
 }
 
 export function QuoteForm({ defaultEquipmentType = "Computadores", title = "Solicita una cotizacion" }: QuoteFormProps) {
-  const [equipmentType, setEquipmentType] = useState(
-    equipmentOptions.includes(defaultEquipmentType) ? defaultEquipmentType : "Computadores"
-  )
+  const initialEquipmentType = equipmentOptions.includes(defaultEquipmentType) ? defaultEquipmentType : "Computadores"
+  const [equipmentType, setEquipmentType] = useState(initialEquipmentType)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitState, setSubmitState] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const formData = new FormData(form)
     const nombre = String(formData.get("nombre") ?? "").trim()
     const empresa = String(formData.get("empresa") ?? "").trim()
     const email = String(formData.get("email") ?? "").trim()
@@ -48,25 +48,48 @@ export function QuoteForm({ defaultEquipmentType = "Computadores", title = "Soli
     const comuna = String(formData.get("comuna") ?? "").trim()
     const requerimientos = String(formData.get("requerimientos") ?? "").trim()
 
-    const subject = `Cotizacion RentByte - ${tipo} - ${empresa}`
-    const body = [
-      "Hola RentByte,",
-      "",
-      "Quiero solicitar una cotizacion con los siguientes datos:",
-      `Nombre: ${nombre}`,
-      `Empresa: ${empresa}`,
-      `Email: ${email}`,
-      `Telefono: ${telefono || "No informado"}`,
-      `Tipo de equipo: ${tipo}`,
-      `Cantidad estimada: ${cantidad}`,
-      `Plazo: ${plazo}`,
-      `Comuna o ciudad: ${comuna}`,
-      "",
-      "Requerimientos:",
-      requerimientos,
-    ].join("\n")
+    setIsSubmitting(true)
+    setSubmitState(null)
 
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre,
+          empresa,
+          email,
+          telefono,
+          tipo,
+          cantidad,
+          plazo,
+          comuna,
+          requerimientos,
+        }),
+      })
+
+      const result = (await response.json().catch(() => null)) as { error?: string } | null
+
+      if (!response.ok) {
+        throw new Error(result?.error || "No se pudo enviar la solicitud.")
+      }
+
+      form.reset()
+      setEquipmentType(initialEquipmentType)
+      setSubmitState({
+        type: "success",
+        message: "Solicitud enviada. Te contactaremos con una propuesta inicial.",
+      })
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message: error instanceof Error ? error.message : "No se pudo enviar la solicitud.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -74,7 +97,7 @@ export function QuoteForm({ defaultEquipmentType = "Computadores", title = "Soli
       <div>
         <h3 className="font-display text-[24px] font-extrabold tracking-[-0.02em] text-white">{title}</h3>
         <p className="mt-2 text-[14.5px] leading-[1.6] text-[#9fabc2]">
-          El formulario abre tu cliente de correo con la solicitud prellenada para agilizar la cotizacion.
+          Envia tu solicitud y nuestro equipo comercial la recibira directamente para preparar la cotizacion.
         </p>
       </div>
 
@@ -177,10 +200,17 @@ export function QuoteForm({ defaultEquipmentType = "Computadores", title = "Soli
 
       <button
         type="submit"
+        disabled={isSubmitting}
         className="mt-5 inline-flex items-center justify-center rounded-[10px] bg-[#1656c9] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2f6fe0]"
       >
-        Preparar correo de cotizacion
+        {isSubmitting ? "Enviando solicitud..." : "Enviar solicitud de cotizacion"}
       </button>
+
+      {submitState ? (
+        <p className={`mt-4 text-sm ${submitState.type === "success" ? "text-[#8fd6a6]" : "text-[#ffb4b4]"}`}>
+          {submitState.message}
+        </p>
+      ) : null}
     </form>
   )
 }
