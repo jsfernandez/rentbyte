@@ -109,6 +109,16 @@ export default function ContactoPage() {
 
               <div className="mt-8 rounded-2xl border border-[#24324c] bg-[#12203a] p-5 text-[14.5px] leading-[1.65] text-[#b9c5da]">
                 <p>
+                  Disenamos propuestas a medida desde 5 equipos y con contratos de arriendo desde 6 meses en adelante, lo que nos permite asegurar una
+                  implementacion ordenada, equipos correctamente preparados y una entrega alineada con tu operacion. Ademas, ofrecemos garantia y cambio
+                  de equipo ante defectos de fabrica, para dar continuidad a tu operacion. En proyectos de mayor escala, especialmente desde 50 equipos o
+                  mas, coordinamos disponibilidad, configuracion y despliegue con la anticipacion necesaria para cumplir bien, por lo que los plazos se
+                  evaluan caso a caso. No trabajamos arriendos por menos de 6 meses.
+                </p>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-[#24324c] bg-[#12203a] p-5 text-[14.5px] leading-[1.65] text-[#b9c5da]">
+                <p>
                   Enlaces utiles: <Link href="/privacy" className="font-semibold text-white hover:text-[#7fa8f5]">Politica de privacidad</Link> y{" "}
                   <Link href="/terminos" className="font-semibold text-white hover:text-[#7fa8f5]">Terminos del servicio</Link>.
                 </p>

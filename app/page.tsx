@@ -730,6 +730,15 @@ export default function RentBytePage() {
                   <Link href="/terminos" className="font-semibold text-white hover:text-[#7fa8f5]">Terminos</Link>.
                 </p>
               </div>
+
+              <div className="mt-8 rounded-2xl border border-[#24324c] bg-[#12203a] p-5 text-[14.5px] leading-[1.65] text-[#b9c5da]">
+                <p>
+                  Atendemos proyectos desde 5 equipos y plazos de arriendo desde 6 meses en adelante, una base que nos permite ofrecer una implementacion
+                  bien coordinada, equipos listos para operar desde la entrega y garantia con cambio de equipo ante defectos de fabrica. Cuando el
+                  requerimiento es de mayor escala, como 50 equipos o mas, planificamos disponibilidad, preparacion y despliegue con la anticipacion
+                  adecuada, por lo que estos proyectos suelen requerir mas tiempo de coordinacion. No trabajamos arriendos por menos de 6 meses.
+                </p>
+              </div>
             </div>
 
             <QuoteForm defaultEquipmentType="Computadores" title="Preparar solicitud de cotizacion" />
