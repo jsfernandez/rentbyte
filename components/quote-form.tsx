@@ -15,9 +15,6 @@ const equipmentOptions = [
 ]
 
 const termOptions = [
-  "Dias",
-  "1 a 4 semanas",
-  "1 a 3 meses",
   "3 a 12 meses",
   "Mas de 12 meses",
 ]
